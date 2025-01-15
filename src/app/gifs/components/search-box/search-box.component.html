@@ -1,2 +1,5 @@
 <h5>Buscar</h5>
-<input type="text" class="form-control" placeholder="Buscar gifs...">
+<input type="text" class="form-control" placeholder="Buscar gifs"
+(keyup.enter)="buscarEtiqueta()"
+#textInputEtiqueta><!--keyup.enter cuando se levante el boton enter, tras pulsarlo
+se lanzara el metodo buscarEtiqueta, el cual recibe el texto insertado en el input, esto se hace mediante el #txtInputEtiqueta-->
