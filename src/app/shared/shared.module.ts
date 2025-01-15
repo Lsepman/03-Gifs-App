@@ -13,4 +13,6 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   ],
   exports: [SidebarComponent]
 })
-export class SharedModule { }
+export class SharedModule {
+
+}

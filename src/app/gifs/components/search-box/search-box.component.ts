@@ -1,4 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { GifsService } from '../../services/gifs.service';
+
 
 @Component({
   selector: 'gifs-search-box',
@@ -12,13 +14,20 @@ export class SearchBoxComponent {
   //  console.log(nuevaEtiqueta);
   //}
 
-  @ViewChild('textInputEtiqueta') //coge el valor de la equieta generada en el html #txtInputEtiqueta
+
+ @ViewChild('textInputEtiqueta') //coge el valor de la equieta generada en el html #txtInputEtiqueta
   public inputEtiqueta! : ElementRef<HTMLInputElement>;
-  //Indicamos que siempre habra un balor con ! para evitar que marque error
+  //Indicamos que siempre habra un valor con ! para evitar que marque error
+
+  constructor(private gifsService: GifsService) {
+
+  }
 
   buscarEtiqueta(){
     const nuevaEtiqueta= this.inputEtiqueta.nativeElement.value;
-    console.log({nuevaEtiqueta});
+    this.gifsService.buscarEtiqueta(nuevaEtiqueta);
+    this.inputEtiqueta.nativeElement.value=""; //limpia el input
   }
+
 
 }
