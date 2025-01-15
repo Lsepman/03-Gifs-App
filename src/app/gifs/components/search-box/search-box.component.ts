@@ -15,6 +15,8 @@ export class SearchBoxComponent {
   //}
 
 
+
+
  @ViewChild('textInputEtiqueta') //coge el valor de la equieta generada en el html #txtInputEtiqueta
   public inputEtiqueta! : ElementRef<HTMLInputElement>;
   //Indicamos que siempre habra un valor con ! para evitar que marque error
