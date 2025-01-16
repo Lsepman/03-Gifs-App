@@ -15,7 +15,7 @@ import { SharedModule } from '../shared/shared.module';
     CardListComponent
   ],
   imports: [
-    CommonModule, SharedModule
+    CommonModule
   ],
   exports: [HomePagesComponent]
 })
