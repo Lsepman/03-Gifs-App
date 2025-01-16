@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { GifsService } from '../../../gifs/services/gifs.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class SidebarComponent {
   }
 
   get historial(){
-    return this.gifsService.historialEtiquetas;
+     return this.gifsService.historialEtiquetas;
   }
 
 
