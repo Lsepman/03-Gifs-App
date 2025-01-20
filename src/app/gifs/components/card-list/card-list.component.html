@@ -1,12 +1,12 @@
 <div class="row">
   <!--En pantallas medianas cada columna ocupa 3/12 columnas creadas-->
   <!--En pantallas pequeñas cada columna ocupa 6/12 columnas creadas-->
-  <div class="col-md-3 col-sm-6">
-    <div class="card mb-2 text-center bg-primary">
-      <!--TODO: Crear Imagen-->
+  <div *ngFor="let gifs of listadoGifs"class="col-md-3 col-sm-6">
+    <div  class="card mb-2 text-center bg-primary">
+      <img src="{{gifs.images.original.url}}" alt="gifs" height="400px">
       <div class="card-body">
         <p class="card-text text-white">
-          Hola mundo!
+          {{gifs.title}}
         </p>
       </div>
     </div>

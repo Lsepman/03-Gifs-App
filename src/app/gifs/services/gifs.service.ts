@@ -1,5 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import  {Injectable} from '@angular/core';
+import { Gif, SearchResponse } from '../interfaces/gifs.interfaces';
+
 
 //Registra el servicio a nivel global para que este disponible en toda la aplicacion
 @Injectable({
@@ -7,6 +9,7 @@ import  {Injectable} from '@angular/core';
 })
 export class GifsService {
 
+  public listadoGifs: Gif[]= [];
 
   //Array para mantener un historia de las etiquetas de busqueda realizadas. _ quiere decir que es privado
   private _historialEtiqueta: string[] = [];
@@ -14,6 +17,10 @@ export class GifsService {
   //Clave de acceso a la API de Giphy
   private apiKey: string= '0wlU1oJQfUnBbaubHYRTtJW8LJ776C6V';
   private serviceUrl: string= 'https://api.giphy.com/v1/gifs';//URL base de la API de Giphy
+
+
+
+
 
   //Constructor del servicio, se inyecta HttpClient en el construtor habilitando el uso del cliente HTTP en este servicio
   constructor(private http: HttpClient){
@@ -58,8 +65,10 @@ export class GifsService {
     .set('q', etiqueta);
 
     //Esto es un observable, que consiste en un objeto que emite diferentes valores a lo largo del tiempo. Esto quiere decir que esta escuchando las emisiones que el objeto esta emitiendo.
-    //Envia una solicitud GET a la API de Giphy usando los parametros y la URL base. suscribe escucha la respuesta de la API de forma asincrona
-    this.http.get(`${ this.serviceUrl}/search`, {params}).subscribe( resp =>{console.log(resp);
+    //Envia una solicitud GET a la API de Giphy usando los parametros y la URL base. suscribe escucha la respuesta de la API de forma asincrona. 
+    this.http.get<SearchResponse>(`${ this.serviceUrl}/search`, {params}).subscribe( resp =>{
+      this.listadoGifs = resp.data;
+      console.log({gifs : this.listadoGifs});
 
     })
 
