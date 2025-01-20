@@ -1,5 +1,7 @@
 <h5>Buscar</h5>
-<input type="text" class="form-control" placeholder="Buscar gifs"
+
+<input type="text"
+class="form-control"
+placeholder="Buscar gifs"
 (keyup.enter)="buscarEtiqueta()"
-#textInputEtiqueta><!--keyup.enter cuando se levante el boton enter, tras pulsarlo
-se lanzara el metodo buscarEtiqueta, el cual recibe el texto insertado en el input, esto se hace mediante el #txtInputEtiqueta-->
+#textInputEtiqueta><!--keyup.enter es un even binding que escucha el evento keyup que ocurre al soltar una tecla, detecta especificamente si la tecla presionada fue enter y llama al metodo buscarEtiqueta para ejecutar la logica de busqueda. #textInputEtiqueta  referencia local que- se conecta con el @viewChild para acceder al valor del campo.-->

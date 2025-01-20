@@ -9,11 +9,12 @@ import { GifsService } from '../../../gifs/services/gifs.service';
 export class SidebarComponent {
 
 
+  //Se realiza una inyeccion de dependencias, permite acceder a las propiedades y metodos del servicio
   constructor(private gifsService: GifsService){
 
   }
 
-
+//Proporciona acceso al historial de busquedas almacenado en el servicio y devuelve una copia del array asegurando que el componente no modifique accidentalmente el historial original.Utiliza el serbicio para obtener el historial de etiquetas que se han buscado previamente
  get historial(){
   return this.gifsService.historialEtiquetas;
  }
