@@ -2,9 +2,9 @@
 <h3 class="text-light">GifsApp</h3>
 <hr>
 
-<!--ngFor itera sobre la propiedad historial del componente y crea un boton por cada elemento en el historial, mostrando el contenido de cada elemento del historial. ngFor genera dinamicamente botones para cada elemento del historial-->
+<!--ngFor itera sobre la propiedad historial del componente y crea un boton por cada elemento en el historial, mostrando el contenido de cada elemento del historial. ngFor genera dinamicamente botones para cada elemento del historial. Obtenemos el indice del elemento, y escuchamos el evento click en el boton y llama al metodo recuperar etiquetas pasandole el indice del elemento actual como argumento-->
   <div class="list-group list-reset">
-    <button *ngFor="let etiquetas of historial" class="list-group-item list-group-item-action">{{etiquetas}}
+    <button *ngFor="let etiquetas of historial let i=index" class="list-group-item list-group-item-action" (click)="recuperarEtiqueta(i)">{{etiquetas}}
     </button>
 
   </div>

@@ -8,6 +8,7 @@ import { Gif } from '../../interfaces/gifs.interfaces';
 })
 export class CardListComponent {
 
+  //Permite que listadoGifs reciba datos desde un componente padre. Este establece una comunicacion entre el componente padre e hijo, permitiendo que el padre pase un array de objetos al componente hijo.
   @Input()
   public listadoGifs: Gif[]=[];
 }
